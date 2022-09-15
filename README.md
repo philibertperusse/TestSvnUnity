@@ -19,7 +19,7 @@
    - Dans Windows Explorer, naviguer dans votre dossier où vous voulez mettre votre projet (exemple: C:\Users\beatr\)
    - Faire "click-droit" sur la souris dans le dossier, et choisir "SVN Checkout"
      - Dans le champ "URL of repository", copier le URL du projet
-     - Dans le champ "Checkout repository", ajuster le nom du dossier où mettre votre projet localement (ex: enlever le .git)
+     - Dans le champ "Checkout directory", ajuster le nom du dossier où mettre votre projet localement (ex: enlever le .git et donner un meilleur nom)
  
 5. Ouvrir le projet dans Unity
    - Faire "open", "Add project from disk"
@@ -32,7 +32,7 @@
    - Dans la fenêtre SVN, choisir vos nouveaux fichiers et faire "Add"
      - Si les dossiers Temp, Log, UserSettings ou Library apparaissent, faire click droit et choisir "Add to ignore list"
    - Dans la fenêtre, inscrire un petit message qui explique votre changement
-   - Faire "Commmit"
+   - Faire "Commit"
    - Dans la nouvelle fenêtre, inscrire vos accès Github:
      - Nom d'utilisateur: adresse courriel que vous avez utilisée pour créer votre compte github
      - Mot de passe: le PAT que vous avez créé précédemment.
