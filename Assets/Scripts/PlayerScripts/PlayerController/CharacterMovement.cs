@@ -11,4 +11,7 @@ public class CharacterMovement : MonoBehaviour
         var dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         transform.Translate(dir * _speed * Time.deltaTime);
     }
+
+
+
 }
