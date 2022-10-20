@@ -14,22 +14,21 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow))
             transform.Translate(_Speed * Time.deltaTime, 0, 0);
-
+// move right
         if (Input.GetKey(KeyCode.LeftArrow))
             transform.Translate(-_Speed * Time.deltaTime, 0, 0);
-
+// move left
         if ((Input.GetKey(KeyCode.LeftShift)) && (Input.GetKey(KeyCode.RightArrow)))
             transform.Translate(_Speed * _runningSpeed * Time.deltaTime, 0, 0);
-
+// Running right
         if ((Input.GetKey(KeyCode.LeftShift)) && (Input.GetKey(KeyCode.LeftArrow)))
             transform.Translate(-_Speed * _runningSpeed * Time.deltaTime, 0, 0);
-
+// Running left
         if (Input.GetKey(KeyCode.Space))
             transform.Translate(0, jumpforce * Time.deltaTime, 0);
-//
-       
+        // Jump
 
-
+      
     }
 }
 
