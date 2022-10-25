@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private float _Speed;
     [SerializeField] private float _runningSpeed;
-    [SerializeField] private float jumpforce;
+    [SerializeField] private float _jumpforce;
     private bool _IsGrounded;
 
     void Update()
@@ -25,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
             transform.Translate(-_Speed * _runningSpeed * Time.deltaTime, 0, 0);
 // Running left
         if (Input.GetKey(KeyCode.Space))
-            transform.Translate(0, jumpforce * Time.deltaTime, 0);
+            transform.Translate(0, _jumpforce * Time.deltaTime, 0);
         // Jump
 
       
