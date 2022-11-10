@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-
+ 
     [SerializeField] private float _Speed;
     [SerializeField] private float _runningSpeed;
     [SerializeField] private float _jumpforce;
@@ -27,8 +27,18 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
             transform.Translate(0, _jumpforce * Time.deltaTime, 0);
         // Jump
+        Vector3 local = transform.localScale;
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            transform.localScale = new Vector3(2, 1, 2);
+            Vector3 world = transform.lossyScale;
+        }
+        else
+ { transform.localScale = new Vector3(2, 2, 2);
+            Vector3 world = transform.lossyScale;
+        }
+            //Crouch
 
-      
+
     }
 }
 
