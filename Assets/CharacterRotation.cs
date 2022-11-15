@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CharacterRotation : MonoBehaviour
 {
-    private float zRot = 0f;
+    private float zRot = 45;
     public Transform playerObj;
 
     void FixedUpdate()
     {
-        zRot = Mathf.Clamp(zRot, -25f, 25f);
+        zRot = Mathf.Clamp(45, -25, 25);
     }
 }

@@ -8,6 +8,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _Speed;
     [SerializeField] private float _runningSpeed;
     [SerializeField] private float _jumpforce;
+    [SerializeField] private float _Y_size;
+    [SerializeField] private float _X_size;
+
     private bool _IsGrounded;
 
     void Update()
@@ -29,11 +32,11 @@ public class CharacterMovement : MonoBehaviour
         // Jump
         Vector3 local = transform.localScale;
         if (Input.GetKey(KeyCode.DownArrow)) {
-            transform.localScale = new Vector3(2, 1, 2);
+            transform.localScale = new Vector3( _X_size, _Y_size * 0.5f, 2);
             Vector3 world = transform.lossyScale;
         }
         else
- { transform.localScale = new Vector3(2, 2, 2);
+ { transform.localScale = new Vector3( _X_size, _Y_size, 2);
             Vector3 world = transform.lossyScale;
         }
             //Crouch
