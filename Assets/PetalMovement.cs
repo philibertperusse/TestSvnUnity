@@ -9,4 +9,10 @@ public class PetalMovement : MonoBehaviour
     {
         transform.Translate(-_Speed * Time.deltaTime, 0, 0);
     }
+
+        spriteRenderer.flip.x = true;
+        spriteRenderer.flip.x = false;
+
+
+
 }
