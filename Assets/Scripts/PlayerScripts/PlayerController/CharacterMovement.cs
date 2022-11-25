@@ -40,7 +40,7 @@ public class CharacterMovement : MonoBehaviour
             Vector3 world = transform.lossyScale;
         }
             //Crouch
-
+	// Debug.Log("allo from character");
 
     }
 }
