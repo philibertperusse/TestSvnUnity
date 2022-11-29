@@ -14,8 +14,16 @@ public class PetalMovement : MonoBehaviour
     //mouvement des p�tales vers la gauche
     
     
+
+        transform.Rotate(0, 0, 5 * Time.deltaTime);
+        //rotates 50 degrees per second around z axis
+
+        transform.Rotate(0, 0, 50 * Time.deltaTime);
+        //rotates 50 degrees per second around z axis
+
         //_spriteRenderer.flipX = ! _spriteRenderer.flipX    
         //alternement du flip sur x
+
     }
 
 
