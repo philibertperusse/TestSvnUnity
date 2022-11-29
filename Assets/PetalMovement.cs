@@ -21,7 +21,8 @@ public class PetalMovement : MonoBehaviour
         transform.Rotate(0, 0, 50 * Time.deltaTime);
         //rotates 50 degrees per second around z axis
 
-        //_spriteRenderer.flipX = ! _spriteRenderer.flipX    
+        //List<String> _spriteRenderer = new List<String>();
+        //_spriteRenderer.flipX = ! _spriteRenderer.flipX;    
         //alternement du flip sur x
 
     }
