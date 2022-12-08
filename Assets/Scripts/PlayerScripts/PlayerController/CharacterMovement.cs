@@ -27,8 +27,11 @@ public class CharacterMovement : MonoBehaviour
         if ((Input.GetKey(KeyCode.LeftShift)) && (Input.GetKey(KeyCode.LeftArrow)))
             transform.Translate(-_Speed * _runningSpeed * Time.deltaTime, 0, 0);
 // Running left
-        if (Input.GetKey(KeyCode.Space))
-            transform.Translate(0, _jumpforce * Time.deltaTime, 0);
+        //if (Input.GetKey(KeyCode.Space))
+            //transform.Translate(0, _jumpforce * Time.deltaTime, 0);
+
+
+
         // Jump
         Vector3 local = transform.localScale;
         if (Input.GetKey(KeyCode.DownArrow)) {
