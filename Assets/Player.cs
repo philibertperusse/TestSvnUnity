@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _coins;
-   // public Text coinText;
+    // public Text coinText;
     private static Player _instance;
     public static Player Instance
+  
+  
     {
         get
         {
@@ -15,7 +17,7 @@ public class Player : MonoBehaviour
 
                 return _instance;
         }
-    }
+   }
     void Awake()
     {
         _instance = this;
@@ -25,8 +27,13 @@ public class Player : MonoBehaviour
     {
         _coins++;
     }
-    //public void UptadeCoinText(int coins)
-   // {
-  //      coinText.text = "Coins: " + coins;
-    //}
+    void Start()
+    {
+        _coins = 0;
+    }
+    void Update()
+    {
+        UIManager.Instance.UptadeCoinText(_coins);
+    }
+
 }

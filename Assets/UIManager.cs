@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-   
+    public Text coinText;
 
     private static UIManager _instance;
     public static UIManager Instance
@@ -22,6 +22,11 @@ public class UIManager : MonoBehaviour
         _instance = this;
     }     
 
+    public void UptadeCoinText(int coins)
+    {
 
+        coinText.text = "Coins: " + coins;
+    }
+   
 
- }
+}
