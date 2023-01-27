@@ -6,6 +6,7 @@ public class Jump_height : MonoBehaviour
     public Rigidbody2D rb;
     public float buttonTime = 0.3f;
     public float jumpAmount = 20;
+    public float Run = 2;
     float jumpTime;
     bool _jumping;
     private void Update()
