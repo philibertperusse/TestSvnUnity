@@ -7,24 +7,33 @@ public class Flower : MonoBehaviour
 
     public float delay = 3f; // Number of seconds to delay destruction
     //void Uptade();
-    
-   //public float delay = 3f; // Number of seconds to delay destruction
 
-    private void OnCollision2DEnter(Collision2D collision) {
-        // Start a coroutine that will destroy the object after the specified delay
-        //  StartCoroutine(DelayDestruction());
-        // }
+    //public float delay = 3f; // Number of seconds to delay destruction
+   // Collider2D m_ObjectCollider;
+   
+    void OnCollisionEnter2D(Collision2D collision)
+ {
+     //   m_ObjectCollider = GetComponent<Collider2D>();
+     //   BoxCollider2D.isTrigger = true;
+        
+        
+        //Start a coroutine that will destroy the object after the specified delay
+       
+       StartCoroutine(DelayDestruction());
+  }
 
-        //private IEnumerator DelayDestruction()
-        //  {
-        // Wait for the specified delay
-        //yield return new WaitForSeconds(delay);
 
-        // Destroy the object
-        Destroy(this.gameObject); }
+        IEnumerator DelayDestruction()
+      {
+            // Wait for the specified delay
+       
+     yield return new WaitForSeconds(delay);
 
-    
-}
+    // Destroy the object
+   Destroy(this.gameObject);
+
+       }
+       }
 
     //[SerializeField] delay
     // void Uptade OnCollison2DEnter(Collision2D collision)
