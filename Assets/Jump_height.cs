@@ -5,7 +5,7 @@ public class Jump_height : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float buttonTime = 0.3f;
-    public float jumpAmount = 20;
+    public float jumpAmount = 10;
     public float Run = 2;
     float jumpTime;
     bool _jumping;
@@ -14,29 +14,29 @@ public class Jump_height : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Space)) //&& !Isjumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !Isjumping)
         {
             _jumping = true;
             jumpTime = 0;
-            //Isjumping = true;
+            Isjumping = true;
         }
         if (_jumping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpAmount);
+            rb.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
             jumpTime += Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Space) | jumpTime > buttonTime) //&& !Isjumping 
+        if (Input.GetKeyUp(KeyCode.Space) | jumpTime > buttonTime) 
         {
             _jumping = false;
-            //Isjumping = true;
+            Isjumping = true;
         }
 
     }
-    //void OnCollisionEnter2D(Collision2D other)
-   // {
-        //if (other.gameObject.CompareTag("Ground"))
-       // {
-        //    Isjumping = false;
-       // }
-  //  }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Isjumping = false;
+        }
+    }
 }

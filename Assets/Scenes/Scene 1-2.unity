@@ -2923,7 +2923,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 5
   _runningSpeed: 2
-  _jumpforce: 10
   _Y_size: 1
   _X_size: 1
 --- !u!114 &1002941183
@@ -4474,7 +4473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1572238367}
   buttonTime: 0.3
-  jumpAmount: 15
+  jumpAmount: 2
   Run: 2
 --- !u!114 &1572238365
 MonoBehaviour:
@@ -4490,7 +4489,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 5
   _runningSpeed: 7
-  _jumpforce: 11
   _Y_size: 8
   _X_size: 8
 --- !u!61 &1572238366
@@ -4568,7 +4566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1572238367}
-  jumpAmount: 10
+  jumpAmount: 2
 --- !u!1 &1753087415
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,11 +7,9 @@ public class CharacterMovement : MonoBehaviour
  
     [SerializeField] private float _Speed;
     [SerializeField] private float _runningSpeed;
-    [SerializeField] private float _jumpforce;
     [SerializeField] private float _Y_size;
     [SerializeField] private float _X_size;
 
-    private bool _IsGrounded;
 
     void Update()
     {
