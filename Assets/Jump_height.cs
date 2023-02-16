@@ -9,7 +9,7 @@ public class Jump_height : MonoBehaviour
     public float Run = 2;
     float jumpTime;
     bool _jumping;
-    private bool Isjumping;
+    [SerializeField] private bool Isjumping;
     private void Update()
     {
 
@@ -18,7 +18,7 @@ public class Jump_height : MonoBehaviour
         {
             _jumping = true;
             jumpTime = 0;
-            Isjumping = true;
+           // Isjumping = true;
         }
         if (_jumping)
         {
@@ -28,7 +28,7 @@ public class Jump_height : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) | jumpTime > buttonTime) 
         {
             _jumping = false;
-            Isjumping = true;
+           // Isjumping = true;
         }
 
     }
