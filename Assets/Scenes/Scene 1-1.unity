@@ -270,7 +270,6 @@ GameObject:
   - component: {fileID: 166309496}
   - component: {fileID: 166309497}
   - component: {fileID: 166309498}
-  - component: {fileID: 166309499}
   - component: {fileID: 166309501}
   - component: {fileID: 166309500}
   m_Layer: 0
@@ -356,7 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 5
   _runningSpeed: 7
-  _jumpforce: 11
   _Y_size: 8
   _X_size: 8
 --- !u!114 &166309496
@@ -373,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 166309494}
   jumpAmount: 25
+  Isjumping: 0
 --- !u!114 &166309497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +388,7 @@ MonoBehaviour:
   buttonTime: 0.3
   jumpAmount: 15
   Run: 2
+  Isjumping: 0
 --- !u!114 &166309498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,18 +402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coins: 0
---- !u!114 &166309499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166309485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96926c9b86bb7c44b9ec54b1c357d9b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &166309500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -501,7 +489,7 @@ GameObject:
   - component: {fileID: 190682105}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,9 +617,9 @@ GameObject:
   - component: {fileID: 280450837}
   - component: {fileID: 280450836}
   - component: {fileID: 280450838}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1086,9 +1074,10 @@ GameObject:
   - component: {fileID: 860894145}
   - component: {fileID: 860894143}
   - component: {fileID: 860894142}
+  - component: {fileID: 860894148}
   m_Layer: 0
   m_Name: petal
-  m_TagString: Player
+  m_TagString: petal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1208,6 +1197,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860894148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860894141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8316e33ecc336842919e85aca757749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1051583457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,7 +1597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661764762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 20}
+  m_LocalPosition: {x: 0, y: 4.0223, z: 20}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1649,7 +1650,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 500, y: 2.24}
+  m_Size: {x: 500, y: 2.2344313}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1668,7 +1669,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 166309489}
-  Speed: 1.5
+  Speedx: 2
+  Speedy: 2
+  Height: 1
 --- !u!1 &1881906215
 GameObject:
   m_ObjectHideFlags: 0
