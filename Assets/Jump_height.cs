@@ -9,16 +9,16 @@ public class Jump_height : MonoBehaviour
     public float Run = 2;
     float jumpTime;
     bool _jumping;
-[SerializeField] private bool Isjumping;
+    [SerializeField] private bool Isjumping;
     private void Update()
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && Isjumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !Isjumping)
         {
             _jumping = true;
             jumpTime = 0;
-Isjumping = false;
+            Isjumping = true;
         }
         if (_jumping)
         {
@@ -28,14 +28,15 @@ Isjumping = false;
         if (Input.GetKeyUp(KeyCode.Space) | jumpTime > buttonTime) 
         {
             _jumping = false;
-            Isjumping = false;
         }
         
     }
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
-            Isjumping = true;
-        Debug.Log("jumping false");
+        {
+            Isjumping = false;
+            Debug.Log("jumping false");
+        }
     }
 }
