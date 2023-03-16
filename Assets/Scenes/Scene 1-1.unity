@@ -357,6 +357,7 @@ MonoBehaviour:
   _runningSpeed: 7
   _Y_size: 8
   _X_size: 8
+  rb: {fileID: 166309494}
 --- !u!114 &166309496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 166309494}
   jumpAmount: 25
+  _Isjumping: 0
   Isjumping: 0
 --- !u!114 &166309497
 MonoBehaviour:

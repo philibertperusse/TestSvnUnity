@@ -9,21 +9,35 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _runningSpeed;
     [SerializeField] private float _Y_size;
     [SerializeField] private float _X_size;
+    [SerializeField] public Rigidbody2D rb;
+    //[SerializeField] public float jumpAmount = 10;
 
 
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow))
-            transform.Translate(_Speed * Time.deltaTime, 0, 0);
-// move right
+        {
+            rb.AddForce(transform.right * _Speed, ForceMode2D.Impulse);
+        }
+            
+        // move right
         if (Input.GetKey(KeyCode.LeftArrow))
-            transform.Translate(-_Speed * Time.deltaTime, 0, 0);
-// move left
+        {
+            rb.AddForce(transform.right * -_Speed, ForceMode2D.Impulse);
+        }
+           
+        // move left
         if ((Input.GetKey(KeyCode.LeftShift)) && (Input.GetKey(KeyCode.RightArrow)))
-            transform.Translate(_Speed * _runningSpeed * Time.deltaTime, 0, 0);
+        {
+            rb.AddForce(transform.right * _Speed * _runningSpeed, ForceMode2D.Impulse);
+        }
+            
 // Running right
-        if ((Input.GetKey(KeyCode.LeftShift)) && (Input.GetKey(KeyCode.LeftArrow)))
-            transform.Translate(-_Speed * _runningSpeed * Time.deltaTime, 0, 0);
+        if ((Input.GetKey(KeyCode.LeftShift)) && (Input.GetKey(KeyCode.LeftArrow))) 
+        { 
+            rb.AddForce(transform.right * -_Speed * _runningSpeed, ForceMode2D.Impulse);
+        }
+            
 // Running left
         //if (Input.GetKey(KeyCode.Space))
             //transform.Translate(0, _jumpforce * Time.deltaTime, 0);
