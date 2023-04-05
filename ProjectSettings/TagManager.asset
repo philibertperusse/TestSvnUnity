@@ -8,6 +8,7 @@ TagManager:
   - petal
   - Ground
   - CanvaHB
+  - FallDetector
   layers:
   - Default
   - TransparentFX
