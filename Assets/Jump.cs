@@ -9,9 +9,11 @@ public class Jump : MonoBehaviour
     [SerializeField] private bool _Isjumping;
     private void Update()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         if (Input.GetKeyDown(KeyCode.Space) && !_Isjumping)
         {
-            rb.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpAmount * Time.deltaTime, ForceMode2D.Impulse);
             _Isjumping = true;
         }
     }

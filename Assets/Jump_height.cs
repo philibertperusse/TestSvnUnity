@@ -12,13 +12,12 @@ public class Jump_height : MonoBehaviour
     [SerializeField] private bool Isjumping;
     private void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.Space) && !Isjumping)
         {
             _jumping = true;
             jumpTime = 0;
             Isjumping = true;
+            Debug.Log (true);
         }
         if (_jumping)
         {
@@ -29,14 +28,14 @@ public class Jump_height : MonoBehaviour
         {
             _jumping = false;
         }
-        
     }
-    void OnCollisionEnter2D(Collision2D other)
+        void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.tag == "Ground")
         {
             Isjumping = false;
-            Debug.Log("jumping false");
+            Debug.Log (false);
         }
-    }
+    }    
+    
 }
