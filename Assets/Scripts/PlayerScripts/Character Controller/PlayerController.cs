@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D Character;
+    [SerializeField] public Collider2D GroundChecker;
+    [SerializeField] public Collider2D Standing;
+    [SerializeField] public Collider2D Crouching;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -13,13 +16,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _RBuildUp;
     [SerializeField] public float _JForce;
     [SerializeField] public bool _IsJumping;
+    [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
+    [SerializeField] public bool _Ceiling;
+    
 
     
 
     void Start()
     {
         Character = gameObject.GetComponent<Rigidbody2D>();
+        Standing.isTrigger = false;
+        Crouching.isTrigger = true;
     }
 
     
@@ -35,6 +43,29 @@ public class PlayerController : MonoBehaviour
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
         }
         //Jump
+
+        if(Input.GetKey(KeyCode.S))
+        {
+            _IsCrouching = true;
+        }
+        else
+        {
+            _IsCrouching = false;
+        }
+        //Crouch Detection
+
+        if(_IsCrouching)
+        {
+            Standing.isTrigger = true;
+            Crouching.isTrigger = false;
+        }
+        else
+        {
+            Standing.isTrigger = false;
+            Crouching.isTrigger = true;
+        }
+        //Crouch Deformation
+
         if(Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2)
         {
             _BuildUp = 0.5f + _BuildUp;
@@ -55,13 +86,15 @@ public class PlayerController : MonoBehaviour
         }
         //Build up for running
 
-        if(_Direction > 0.1f)
+        if(_Direction > 0.1f && _IsCrouching || _Direction < -0.1f && _IsCrouching)
         {
-            Character.AddForce(new Vector2(_Speed * _Direction * _CSpeed * _Limiter + _BuildUp * _Limiter * 1.5f + _RBuildUp * _Limiter, 0f), ForceMode2D.Impulse);
+            Character.AddForce(new Vector2(_Speed * _Direction * _CSpeed * _Limiter + _BuildUp * _Limiter * 1.5f, 0f), ForceMode2D.Impulse);
         }
-        if(_Direction < -0.1f)
+        //Direction Calculations for crouching (sorry computer, you have a lot of work to do because of me :( )
+
+        if(_Direction > 0.1f && !_IsCrouching || _Direction < -0.1f && !_IsCrouching)
         {
-            Character.AddForce(new Vector2(_Speed * _Direction * _CSpeed * _Limiter + _BuildUp * _Limiter * 1.5f + _RBuildUp * _Limiter, 0f), ForceMode2D.Impulse);
+            Character.AddForce(new Vector2(_Speed * _Direction * _Limiter + _BuildUp * _Limiter * 1.5f + _RBuildUp * _Limiter, 0f), ForceMode2D.Impulse);
         }
         //Direction Calculations (sorry computer, you have a lot of work to do because of me :( )
         
@@ -86,20 +119,20 @@ public class PlayerController : MonoBehaviour
         //Build down for running
     }
     
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D GroundChecker)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(GroundChecker.gameObject.tag == "Ground")
         {
             _IsJumping = false;
         }
+        //The character is on ground.
     }
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D GroundChecker)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(GroundChecker.gameObject.tag == "Ground")
         {
             _IsJumping = true;
         }
+        //The character is not on ground.
     }
-        
-
 }

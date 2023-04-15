@@ -3686,6 +3686,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 14, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 7
+      m_TileSpriteIndex: 70
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 24, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -5482,7 +5492,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ce4b027a103e125448fe1ba51f88f367, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 3b79d304aee297945b4adb024cb62dd6, type: 2}
-  - m_RefCount: 66
+  - m_RefCount: 67
     m_Data: {fileID: 11400000, guid: 61cad6af5fea049408a3a9bca75197b3, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 9e7d5aab1bd79e548926c2f8e7f1c2ce, type: 2}
@@ -5745,7 +5755,7 @@ Tilemap:
     m_Data: {fileID: 1264256164, guid: c6df527e3e756b34cbc87b699250f152, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -2072548177, guid: c6df527e3e756b34cbc87b699250f152, type: 3}
-  - m_RefCount: 66
+  - m_RefCount: 67
     m_Data: {fileID: 285237453, guid: c6df527e3e756b34cbc87b699250f152, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -255786393, guid: c6df527e3e756b34cbc87b699250f152, type: 3}
@@ -5772,7 +5782,7 @@ Tilemap:
   - m_RefCount: 9
     m_Data: {fileID: -1739047517, guid: c6df527e3e756b34cbc87b699250f152, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 347
+  - m_RefCount: 348
     m_Data:
       e00: 1
       e01: 0
@@ -5791,7 +5801,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 347
+  - m_RefCount: 348
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6065,6 +6075,22 @@ CompositeCollider2D:
         Y: 28125000
       - X: 254375008
         Y: 28125000
+    - - X: 300000100
+        Y: 19999959
+      - X: 300000100
+        Y: 38750041
+      - X: 300000041
+        Y: 38750100
+      - X: 279999959
+        Y: 38750100
+      - X: 279999900
+        Y: 38750041
+      - X: 279999900
+        Y: 19999959
+      - X: 279999959
+        Y: 19999900
+      - X: 300000041
+        Y: 19999900
     - - X: 899374976
         Y: 35625000
       - X: 899374976
@@ -6297,18 +6323,18 @@ CompositeCollider2D:
       - {x: 194.25, y: 29.999971}
       - {x: 194.25002, y: 5.1249924}
       - {x: 194.56252, y: 4.8125}
-    - - {x: 153.25, y: 18.8125}
-      - {x: 153.75, y: 19.062515}
-      - {x: 153.74998, y: 19.937502}
-      - {x: 150.25, y: 19.937471}
-      - {x: 150.25002, y: 19.124992}
-      - {x: 150.75002, y: 18.8125}
     - - {x: 161.25, y: 18.8125}
       - {x: 161.75, y: 19.062515}
       - {x: 161.74998, y: 19.937502}
       - {x: 158.25, y: 19.937471}
       - {x: 158.25002, y: 19.124992}
       - {x: 158.75002, y: 18.8125}
+    - - {x: 153.25, y: 18.8125}
+      - {x: 153.75, y: 19.062515}
+      - {x: 153.74998, y: 19.937502}
+      - {x: 150.25, y: 19.937471}
+      - {x: 150.25002, y: 19.124992}
+      - {x: 150.75002, y: 18.8125}
     - - {x: 169.25, y: 16.8125}
       - {x: 169.75, y: 17.062515}
       - {x: 169.74998, y: 17.937502}
@@ -6393,6 +6419,10 @@ CompositeCollider2D:
       - {x: 20.25, y: 7.4374704}
       - {x: 20.250008, y: 3.1249924}
       - {x: 20.562511, y: 2.8125}
+    - - {x: 29.999975, y: 1.99999}
+      - {x: 29.999975, y: 3.87501}
+      - {x: 27.99999, y: 3.8749747}
+      - {x: 28.000027, y: 1.99999}
     - - {x: 145.74998, y: -2}
       - {x: 145.75003, y: -0.625}
       - {x: 145.875, y: -0.62497073}
@@ -6423,6 +6453,20 @@ CompositeCollider2D:
       - {x: 87.9375, y: 2.5625167}
       - {x: 87.937454, y: 2.8749764}
       - {x: 86.0625, y: 1.9374834}
+    - - {x: 209.99997, y: -2}
+      - {x: 209.99997, y: -0.125}
+      - {x: 201.75, y: -0.1249706}
+      - {x: 201.75003, y: 1.3125}
+      - {x: 201.875, y: 1.3125293}
+      - {x: 201.87497, y: 1.875}
+      - {x: 194.125, y: 1.8749708}
+      - {x: 194.12503, y: 1.4375}
+      - {x: 194.25, y: 1.4374707}
+      - {x: 194.24997, y: -0.125}
+      - {x: 174.125, y: -0.1250293}
+      - {x: 174.12503, y: -0.5625}
+      - {x: 174.25, y: -0.5625294}
+      - {x: 174.25003, y: -2}
     - - {x: 23.999971, y: -2}
       - {x: 24.0001, y: -0.1423309}
       - {x: 24.010792, y: -1.9842948}
@@ -6456,20 +6500,6 @@ CompositeCollider2D:
       - {x: 6.2499704, y: -0.125}
       - {x: -6, y: -0.1250293}
       - {x: -5.999971, y: -2}
-    - - {x: 209.99997, y: -2}
-      - {x: 209.99997, y: -0.125}
-      - {x: 201.75, y: -0.1249706}
-      - {x: 201.75003, y: 1.3125}
-      - {x: 201.875, y: 1.3125293}
-      - {x: 201.87497, y: 1.875}
-      - {x: 194.125, y: 1.8749708}
-      - {x: 194.12503, y: 1.4375}
-      - {x: 194.25, y: 1.4374707}
-      - {x: 194.24997, y: -0.125}
-      - {x: 174.125, y: -0.1250293}
-      - {x: 174.12503, y: -0.5625}
-      - {x: 174.25, y: -0.5625294}
-      - {x: 174.25003, y: -2}
     - - {x: 84.0625, y: 0.625053}
       - {x: 85.9375, y: 1.5625166}
       - {x: 85.937454, y: 1.8749764}
@@ -6478,6 +6508,12 @@ CompositeCollider2D:
       - {x: 83.9375, y: 0.5625166}
       - {x: 83.937454, y: 0.87497634}
       - {x: 82.0625, y: -0.0625166}
+    - - {x: 237.74997, y: -2}
+      - {x: 237.75002, y: -0.625}
+      - {x: 237.875, y: -0.62497073}
+      - {x: 237.87497, y: -0.125}
+      - {x: 218, y: -0.1250293}
+      - {x: 218.00003, y: -2}
     - - {x: 157.74998, y: -2}
       - {x: 157.75003, y: -0.625}
       - {x: 157.875, y: -0.62497073}
@@ -6494,12 +6530,6 @@ CompositeCollider2D:
       - {x: 148.12503, y: -0.5625}
       - {x: 148.25, y: -0.5625294}
       - {x: 148.25003, y: -2}
-    - - {x: 237.74997, y: -2}
-      - {x: 237.75002, y: -0.625}
-      - {x: 237.875, y: -0.62497073}
-      - {x: 237.87497, y: -0.125}
-      - {x: 218, y: -0.1250293}
-      - {x: 218.00003, y: -2}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &235590714
@@ -20501,6 +20531,7 @@ GameObject:
   - component: {fileID: 1572238359}
   - component: {fileID: 1572238360}
   - component: {fileID: 1572238369}
+  - component: {fileID: 1572238372}
   - component: {fileID: 1572238370}
   - component: {fileID: 1572238371}
   m_Layer: 0
@@ -20612,7 +20643,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 10
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -20624,7 +20655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572238358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.15, y: -5.09, z: 0}
+  m_LocalPosition: {x: -127.15, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -20660,15 +20691,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1572238367}
+  GroundChecker: {fileID: 1572238371}
+  Standing: {fileID: 1572238369}
+  Crouching: {fileID: 1572238372}
   _Speed: 2.5
   _SCap: 6.25
-  _CSpeed: 0.6
+  _CSpeed: 0.05
   _Direction: 0
   _BuildUp: 0
   _RBuildUp: 0
   _JForce: 35
   _IsJumping: 0
+  _IsCrouching: 0
   _Limiter: 0.15
+  _Ceiling: 0
 --- !u!61 &1572238371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20695,6 +20731,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!70 &1572238372
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572238358}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 1.5, y: 1.5}
+  m_Direction: 0
 --- !u!1 &1572975096
 GameObject:
   m_ObjectHideFlags: 0
@@ -26702,7 +26754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACAn+ugiiqhVgIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF9VE1v2zAM/SuBzmtht83W7La5abpD26Dp0IsvjETHQmTJkOQmaZH/Pkq2Yy/Adgrz+Eg+fsifTGpXI/fGLqwUj0Yg+z5hwWZfJoPzAfewMXolP7DnvEnhy0CCyHkBLw3haQhzpkJvJf+hNyqQEwIbLQtjq7nYYGacdwQXoBySyxofojVBnxO2p5+LWQg5kHX1LVgfZM2SyZFMjtqjHag9sae1rEZzBVWNIkgeyGnPTluapmY6RhDOjVLSdUqYP9Sx0wxq11AfRBASqLNYPr28JqBEuSl90DkOfy4Kh74TZeFwJy2NqM3Lfpp2bhW4bavsHVQTKl2kUVSb8/Ff7sKa6qEvmyahhC8l377AgYPzo7mO4buR8jifHagtrBW+laifzMKaRgtyetuE0Mbh1d3w99RZViLfDngr9Qxs6v9u5xh732dKVuuAXN60wEqZOO+4erS0mV+kNx6G6zIQGkT8dvgKm/EFdY57aZ0nV9ekDurWprGByuZxZKGZxmfGaoxwp7lGDcoflpTGny/wzDcqe+a5h/BWuuKdr38CZyERHvhJcuZamt1pV640u0d05XPjldQ4iA6OJ5pTZrRu72s8kz5s1dgC+Chs00jx92UxfrNOb6dpwr8KcQ0cLmZFirNEXE9hOr2C2xsWT09q6hPUshXajYe2pofkms6s/4RMFhbqeOvCwm4hPyozGrnUhVlxi6if2wwn4WipCL1KMReSBrRC76WO+2afOVOGb1Hkp0R57HS+9xbyIUvOavlufEBylsVvRs4CfDrlpcV3ibtQvE92ZMc/UEsDBBQAAAgIAACAn+vaLsMxbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSskmSoYWpoUGyWUqKcWJyoq5lmmGqpUGKsWmiqalRooWJUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACAn+ugiiqhVgIAABIFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACAn+vaLsMxbQAAAHgAAAAJACQAAAAAAAAAAAAAAKMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAWwMAAAAA
+    dataString: UEsDBBQAAAgIAACAn+s99Dx7WAIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1T2zAQ/SsZnQtjA2lJb60JoQcgQ+hw8WUjrWNNZMkjySSByX/vSrZjNzOcsnn7dvfth/zJpHY1cm/swkrxaASynxMWbPZtMjgfcA8bo1fyA3vOmxS+DCSInBfw0hCehjBnKvRW8l96owI5IbDRsjC2mosNZsZ5R3AByiG5rPEhWhP0OWF7+rmYhZADWVc/gvVB1iyZHMnkqD3agdoTe1rLajRXUNUoguSBnPbstKVpaqZjBOHcKCVdp4T5Qx07zaB2DfVBBCGBOovl08trAkqUm9IHnePw56Jw6DtRFg530tKI2rzst2nnVoHbtsreQTWh0kUaRbU5H79yF9ZUD33ZNAklfCn59gUOHJwfzXUM342Ux/nsQG1hrfCtRP1kFtY0WpDT2yaENg6v7oa/p86yEvl2wFupZ2BTf72d0MMxNr/PlKzWwXV50wIrZeLA4+7R0mr+kOB4Ga5LQWhQ8dfhK2zGJ9Q57qV1nlxdlzrIW5vGBiqbx5mFbhqfGasxwp3oGjUof1hSGn++wTPfqOyZ5x7CY+mKd77+DZyFRHjgJ8mZa2l2p2W50uwe0ZXPjVdS4yA6OJ5oTpnRuj2w8Uz6sFVjC+CjsE0jxf+nxfjNOr2dpgn/LsQ1cLiYFSnOEnE9hen0Cm5vWLw9qalPUMtWaDce2poekmu6s/4bMllYqOOxCwu7hfyozGjkUhdmxS2ifm4znISjpSL0LMVcSBrQCr2XOu6bfeZMGb5FkZ8S5bHT+d5byIcsOavlu/EByVkWPxo5C/DplpcW3yXuQvE+2ZEd/wFQSwMEFAAACAgAAICf69ouwzFtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKySZKhhamhQbJZSopxYnKirmWaYaqlQYqxaaKpqVGihYlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAICf6z30PHtYAgAAEwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAICf69ouwzFtAAAAeAAAAAkAJAAAAAAAAAAAAAAApQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABdAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
