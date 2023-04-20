@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D Character;
-    [SerializeField] public Collider2D GroundChecker;
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
+    [SerializeField] public Collider2D GroundChecker;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
-    
 
-    
+
+
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         Crouching.isTrigger = true;
     }
 
-    
+
     void Update()
     {
         _Direction = Input.GetAxisRaw("Horizontal");
@@ -38,23 +38,25 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.Space) && !_IsJumping)
+        if (Input.GetKey(KeyCode.Space) && !_IsJumping)
         {
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
         }
-        //Jump
+        //Jump $
 
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             _IsCrouching = true;
+            _JForce = _JForce / 2f;
         }
-        else
+        if (Input.GetKeyUp(KeyCode.S))
         {
             _IsCrouching = false;
+            _JForce = _JForce * 2f;
         }
-        //Crouch Detection
+        //Crouch Detection $
 
-        if(_IsCrouching)
+        if (_IsCrouching)
         {
             Standing.isTrigger = true;
             Crouching.isTrigger = false;
@@ -64,23 +66,23 @@ public class PlayerController : MonoBehaviour
             Standing.isTrigger = false;
             Crouching.isTrigger = true;
         }
-        //Crouch Deformation
+        //Crouch Deformation 
 
-        if(Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2)
+        if (Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2 || Input.GetKey(KeyCode.RightArrow) && _BuildUp < _SCap / 2)
         {
             _BuildUp = 0.5f + _BuildUp;
         }
-        if(Input.GetKey(KeyCode.A) && _BuildUp > -_SCap / 2)
+        if(Input.GetKey(KeyCode.A) && _BuildUp > -_SCap / 2 || Input.GetKey(KeyCode.LeftArrow) && _BuildUp < _SCap / 2)
         {
             _BuildUp = _BuildUp -0.5f;
         }
         //Build up for walking
         
-        if(Input.GetKey(KeyCode.D) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
+        if(Input.GetKey(KeyCode.D) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5 || Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
         {
             _RBuildUp = 0.75f + _RBuildUp;
         }
-        if(Input.GetKey(KeyCode.A) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp > -_SCap / 1.5)
+        if(Input.GetKey(KeyCode.A) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp > -_SCap / 1.5 || Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
         {
             _RBuildUp = _RBuildUp -0.75f;
         }
@@ -88,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
         if(_Direction > 0.1f && _IsCrouching || _Direction < -0.1f && _IsCrouching)
         {
-            Character.AddForce(new Vector2(_Speed * _Direction * _CSpeed * _Limiter + _BuildUp * _Limiter * 1.5f, 0f), ForceMode2D.Impulse);
+            Character.AddForce(new Vector2(_Speed * _Direction * _CSpeed * _Limiter + _BuildUp * _Limiter *_CSpeed, 0f), ForceMode2D.Impulse);
         }
         //Direction Calculations for crouching (sorry computer, you have a lot of work to do because of me :( )
 
@@ -121,7 +123,7 @@ public class PlayerController : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D GroundChecker)
     {
-        if(GroundChecker.gameObject.tag == "Ground")
+        if(IsTouching (collider.gameObject.tag == "Ground"))
         {
             _IsJumping = false;
         }
