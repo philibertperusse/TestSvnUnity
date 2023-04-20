@@ -207,8 +207,13 @@ PrefabInstance:
     - target: {fileID: 5315003283997903045, guid: 968e57155e6a6f74f92eba43119d7256,
         type: 3}
       propertyPath: _Speed
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5315003283997903045, guid: 968e57155e6a6f74f92eba43119d7256,
+        type: 3}
+      propertyPath: Tilemap
+      value: 
+      objectReference: {fileID: 1707028122}
     - target: {fileID: 5315003283997903047, guid: 968e57155e6a6f74f92eba43119d7256,
         type: 3}
       propertyPath: m_RootOrder

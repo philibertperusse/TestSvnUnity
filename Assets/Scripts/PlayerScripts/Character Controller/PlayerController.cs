@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
     [SerializeField] public Collider2D GroundChecker;
+    [SerializeField] public Collider2D Tilemap;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -44,15 +45,13 @@ public class PlayerController : MonoBehaviour
         }
         //Jump $
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             _IsCrouching = true;
-            _JForce = _JForce / 2f;
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        else
         {
             _IsCrouching = false;
-            _JForce = _JForce * 2f;
         }
         //Crouch Detection $
 
@@ -123,7 +122,7 @@ public class PlayerController : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D GroundChecker)
     {
-        if(IsTouching (collider.gameObject.tag == "Ground"))
+        if(GroundChecker.gameObject.tag == "Ground")
         {
             _IsJumping = false;
         }
