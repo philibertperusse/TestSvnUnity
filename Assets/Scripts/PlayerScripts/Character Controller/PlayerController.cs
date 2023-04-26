@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D Character;
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
-    [SerializeField] public Collider2D GroundChecker;
+    [SerializeField] public GroundDetection GC;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Character = gameObject.GetComponent<Rigidbody2D>();
-        GroundChecker = gameObject.GetComponent<Collider2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
     }
@@ -119,25 +118,4 @@ public class PlayerController : MonoBehaviour
         }
         //Build down for running
     }
-    
-    void OnTriggerEnter2D(Collider2D GroundChecker)
-    {
-        if(GroundChecker.tag == ("Ground"))
-        {
-            _IsJumping = false;
-        }
-        else
-        {
-            _IsJumping = true;
-        }
-        //The character is on ground.
-    }
-    //void OnTriggerExit2D(Collider2D GroundChecker)
-    //{
-        //if(!GroundChecker.IsTouching(gameObject.GetComponent<Collider2D>()))
-       // {
-            //_IsJumping = true;
-       // }
-        //The character is not on ground.
-    //}
 }
