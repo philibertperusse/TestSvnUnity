@@ -219,7 +219,8 @@ MonoBehaviour:
   Standing: {fileID: 5315003283997903046}
   Crouching: {fileID: 5315003283997903043}
   GroundChecker: {fileID: 5315003283997903044}
-  _Speed: 0.05
+  Tilemap: {fileID: 0}
+  _Speed: 0.5
   _SCap: 7.5
   _CSpeed: 0.75
   _Direction: 0
