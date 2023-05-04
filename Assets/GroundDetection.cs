@@ -9,7 +9,7 @@ public class GroundDetection : MonoBehaviour
 
     public void Function1()
     {
-        _IsJumping;
+        _IsJumping = true;
 
     }
     void OnTriggerEnter2D(Collider2D GC)

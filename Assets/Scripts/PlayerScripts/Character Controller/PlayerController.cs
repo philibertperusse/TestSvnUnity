@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _CSpeed;
     [SerializeField] public float _Direction;
     [SerializeField] public float _BuildUp;
+    [SerializeField] public float _BuildUpA;
     [SerializeField] public float _RBuildUp;
+    [SerializeField] public float _RBuildUpA;
     [SerializeField] public float _JForce;
     [SerializeField] public bool _IsJumping;
     [SerializeField] public bool _IsCrouching;
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
         GC = FindObjectOfType<GroundDetection>();
-        GC.Function1(_IsJumping);
+        //GC.Function1(_IsJumping);
     }
 
 
@@ -69,11 +71,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2 || Input.GetKey(KeyCode.RightArrow) && _BuildUp < _SCap / 2)
         {
-            _BuildUp = 0.5f + _BuildUp;
+            _BuildUp = _BuildUpA + _BuildUp;
         }
         if(Input.GetKey(KeyCode.A) && _BuildUp > -_SCap / 2 || Input.GetKey(KeyCode.LeftArrow) && _BuildUp < _SCap / 2)
         {
-            _BuildUp = _BuildUp -0.5f;
+            _BuildUp = _BuildUp -_BuildUpA;
         }
         //Build up for walking
         
