@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D Character;
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
-    [SerializeField] public GroundDetection GC;
+    [SerializeField] private GroundDetection GC;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -22,12 +22,13 @@ public class PlayerController : MonoBehaviour
 
 
 
-
     void Start()
     {
         Character = gameObject.GetComponent<Rigidbody2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
+        GC = FindObjectOfType<GroundDetection>();
+        GC.Function1(_IsJumping);
     }
 
 

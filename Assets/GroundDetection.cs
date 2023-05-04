@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class GroundDetection : MonoBehaviour
 {
-    [SerializeField] private bool IsJumping;
+    [SerializeField] public bool _IsJumping;
     [SerializeField] private Collider2D GC ;
 
-
-    public void OnTriggerEnter2D(Collider2D GC)
+    public void Function1()
     {
-        if(GC.gameObject.tag == "Ground")
-        {
-            IsJumping = false;
-        }
-    }
+        _IsJumping;
 
-    public void OnTriggerExit2D(Collider2D GC)
+    }
+    void OnTriggerEnter2D(Collider2D GC)
     {
         if (GC.gameObject.tag == "Ground")
         {
-            IsJumping = true;
+            _IsJumping = false;
+            Debug.Log(false);
+        }
+        else
+        {
+            _IsJumping = true;
         }
     }
+    // void OnTriggerExit2D(Collider2D GC)
+    //{
+    // if (GC.gameObject.tag == "Ground")
+    // {
+    //    _IsJumping = true;
+    //    Debug.Log(true);
+    // }
+    // }
 }
