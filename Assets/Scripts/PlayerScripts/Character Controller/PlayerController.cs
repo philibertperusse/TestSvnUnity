@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _RBuildUp;
     [SerializeField] public float _RBuildUpA;
     [SerializeField] public float _JForce;
-    [SerializeField] public bool _IsJumping;
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
+    [SerializeField] public bool _IsJumping;
 
 
 
@@ -29,14 +29,17 @@ public class PlayerController : MonoBehaviour
         Character = gameObject.GetComponent<Rigidbody2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
-        GC = FindObjectOfType<GroundDetection>();
-        //GC.Function1(_IsJumping);
     }
 
 
     void Update()
     {
         _Direction = Input.GetAxisRaw("Horizontal");
+    }
+
+    void _Jump( bool _Jumping)
+    {
+        _IsJumping = FindObjectOfType<GroundDetection>().Jumping(_Jumping);
     }
 
     void FixedUpdate()
