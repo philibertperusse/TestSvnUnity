@@ -19,7 +19,7 @@ public class GroundDetection : MonoBehaviour
         if (GC.gameObject.tag == "Ground")
         {
             _Jumping = true;
-             Debug.Log(true);
+            Debug.Log(true);
         }
     }
     public bool Jumping( bool _Jumping)

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D Character;
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
-    [SerializeField] private GroundDetection GC;
+    [SerializeField] public Collider2D GC;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -23,10 +23,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _IsJumping;
 
 
-
     void Start()
     {
         Character = gameObject.GetComponent<Rigidbody2D>();
+        GC = gameObject.GetComponent<Collider2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
     }
@@ -37,14 +37,9 @@ public class PlayerController : MonoBehaviour
         _Direction = Input.GetAxisRaw("Horizontal");
     }
 
-    void _Jump( bool _Jumping)
-    {
-        _IsJumping = FindObjectOfType<GroundDetection>().Jumping(_Jumping);
-    }
-
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space) && !_IsJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !_IsJumping)
         {
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
         }
@@ -124,4 +119,22 @@ public class PlayerController : MonoBehaviour
         }
         //Build down for running
     }
+
+    void OnTriggerEnter2D(Collider2D GC)
+    {
+        if (GC.gameObject.tag == "Ground")
+        {
+            _IsJumping = false;
+            Debug.Log(false);
+        }
+    }
+    void OnTriggerExit2D(Collider2D GC)
+    {
+        if (GC.gameObject.tag == "Ground")
+        {
+            _IsJumping = true;
+            Debug.Log(true);
+        }
+    }
+
 }
