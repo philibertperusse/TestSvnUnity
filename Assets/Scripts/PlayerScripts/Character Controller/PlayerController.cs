@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D Character;
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
-    [SerializeField] public Collider2D GC;
+    [SerializeField] public Collider2D GroundChecker;
+    [SerializeField] public Collider2D Tilemap;
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
@@ -20,18 +21,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
-<<<<<<< .mine
-    public Animator animator;
-||||||| .r95
-=======
     [SerializeField] public bool _IsJumping;
->>>>>>> .r105
+    public Animator animator;
 
 
     void Start()
     {
         Character = gameObject.GetComponent<Rigidbody2D>();
-        GC = gameObject.GetComponent<Collider2D>();
+        GroundChecker = gameObject.GetComponent<Collider2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
     }
@@ -130,67 +127,20 @@ public class PlayerController : MonoBehaviour
             _RBuildUp = _RBuildUp + 0.75f;
         }
         //Build down for running
-<<<<<<< .mine
         
         if(GroundChecker.IsTouching(Tilemap))
-||||||| .r95
-    }
-    
-    void OnTriggerEnter2D(Collider2D GroundChecker)
-    {
-        if(GroundChecker.gameObject.tag == "Ground")
-=======
-    }
-
-    void OnTriggerEnter2D(Collider2D GC)
-    {
-        if (GC.gameObject.tag == "Ground")
->>>>>>> .r105
         {
             _IsJumping = false;
-<<<<<<< .mine
             Debug.Log("on ground");
-||||||| .r95
-=======
-            Debug.Log(false);
->>>>>>> .r105
         }
-<<<<<<< .mine
         else
-||||||| .r95
-        //The character is on ground.
-    }
-    void OnTriggerExit2D(Collider2D GroundChecker)
-    {
-        if(GroundChecker.gameObject.tag == "Ground")
-=======
-    }
-    void OnTriggerExit2D(Collider2D GC)
-    {
-        if (GC.gameObject.tag == "Ground")
->>>>>>> .r105
         {
             _IsJumping = true;
-<<<<<<< .mine
             Debug.Log("not on ground");
-||||||| .r95
-=======
-            Debug.Log(true);
->>>>>>> .r105
         }
-<<<<<<< .mine
         //The character is on or not on ground.
-||||||| .r95
-        //The character is not on ground.
-=======
->>>>>>> .r105
     }
-<<<<<<< .mine
     
 
     
-||||||| .r95
-=======
-
->>>>>>> .r105
 }
