@@ -20,7 +20,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
+<<<<<<< .mine
+    public Animator animator;
+||||||| .r95
+=======
     [SerializeField] public bool _IsJumping;
+>>>>>>> .r105
 
 
     void Start()
@@ -35,6 +40,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _Direction = Input.GetAxisRaw("Horizontal");
+        Vector2 vel = Character.velocity;
+
+        animator.SetFloat("Speed", Mathf.Abs(_Direction));
+        animator.SetBool("_IsJumping", _IsJumping);
+        animator.SetFloat("Vspeed", vel.y);
+        
+        
     }
 
     void FixedUpdate()
@@ -118,23 +130,67 @@ public class PlayerController : MonoBehaviour
             _RBuildUp = _RBuildUp + 0.75f;
         }
         //Build down for running
+<<<<<<< .mine
+        
+        if(GroundChecker.IsTouching(Tilemap))
+||||||| .r95
+    }
+    
+    void OnTriggerEnter2D(Collider2D GroundChecker)
+    {
+        if(GroundChecker.gameObject.tag == "Ground")
+=======
     }
 
     void OnTriggerEnter2D(Collider2D GC)
     {
         if (GC.gameObject.tag == "Ground")
+>>>>>>> .r105
         {
             _IsJumping = false;
+<<<<<<< .mine
+            Debug.Log("on ground");
+||||||| .r95
+=======
             Debug.Log(false);
+>>>>>>> .r105
         }
+<<<<<<< .mine
+        else
+||||||| .r95
+        //The character is on ground.
+    }
+    void OnTriggerExit2D(Collider2D GroundChecker)
+    {
+        if(GroundChecker.gameObject.tag == "Ground")
+=======
     }
     void OnTriggerExit2D(Collider2D GC)
     {
         if (GC.gameObject.tag == "Ground")
+>>>>>>> .r105
         {
             _IsJumping = true;
+<<<<<<< .mine
+            Debug.Log("not on ground");
+||||||| .r95
+=======
             Debug.Log(true);
+>>>>>>> .r105
         }
+<<<<<<< .mine
+        //The character is on or not on ground.
+||||||| .r95
+        //The character is not on ground.
+=======
+>>>>>>> .r105
     }
+<<<<<<< .mine
+    
 
+    
+||||||| .r95
+=======
+
+>>>>>>> .r105
 }
