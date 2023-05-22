@@ -285,6 +285,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6745695453242542286, guid: 968e57155e6a6f74f92eba43119d7256,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061812539684466747, guid: 968e57155e6a6f74f92eba43119d7256,
+        type: 3}
+      propertyPath: Tilemap
+      value: 
+      objectReference: {fileID: 1707028122}
+    - target: {fileID: 9061812539684466747, guid: 968e57155e6a6f74f92eba43119d7256,
+        type: 3}
+      propertyPath: _BuildUp
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968e57155e6a6f74f92eba43119d7256, type: 3}
 --- !u!1 &910665754

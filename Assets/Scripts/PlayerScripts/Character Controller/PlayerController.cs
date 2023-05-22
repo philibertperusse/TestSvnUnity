@@ -14,21 +14,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _CSpeed;
     [SerializeField] public float _Direction;
     [SerializeField] public float _BuildUp;
-    [SerializeField] public float _BuildUpA;
     [SerializeField] public float _RBuildUp;
-    [SerializeField] public float _RBuildUpA;
     [SerializeField] public float _JForce;
+    [SerializeField] public bool _IsJumping;
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
-    [SerializeField] public bool _IsJumping;
-    public Animator animator;
+
+
 
 
     void Start()
     {
         Character = gameObject.GetComponent<Rigidbody2D>();
-        GroundChecker = gameObject.GetComponent<Collider2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
     }
@@ -37,18 +35,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _Direction = Input.GetAxisRaw("Horizontal");
-        Vector2 vel = Character.velocity;
-
-        animator.SetFloat("Speed", Mathf.Abs(_Direction));
-        animator.SetBool("_IsJumping", _IsJumping);
-        animator.SetFloat("Vspeed", vel.y);
-        
-        
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !_IsJumping)
+        if (Input.GetKey(KeyCode.Space) && !_IsJumping)
         {
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
         }
@@ -78,11 +69,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2 || Input.GetKey(KeyCode.RightArrow) && _BuildUp < _SCap / 2)
         {
-            _BuildUp = _BuildUpA + _BuildUp;
+            _BuildUp = 0.5f + _BuildUp;
         }
         if(Input.GetKey(KeyCode.A) && _BuildUp > -_SCap / 2 || Input.GetKey(KeyCode.LeftArrow) && _BuildUp < _SCap / 2)
         {
-            _BuildUp = _BuildUp -_BuildUpA;
+            _BuildUp = _BuildUp -0.5f;
         }
         //Build up for walking
         
