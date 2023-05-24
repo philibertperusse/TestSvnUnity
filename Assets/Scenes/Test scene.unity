@@ -300,6 +300,11 @@ PrefabInstance:
       propertyPath: _BuildUp
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 9061812539684466747, guid: 968e57155e6a6f74f92eba43119d7256,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1940319316}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968e57155e6a6f74f92eba43119d7256, type: 3}
 --- !u!1 &910665754
@@ -4941,6 +4946,12 @@ TilemapCollider2D:
 --- !u!4 &1940319314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5315003283997903047, guid: 968e57155e6a6f74f92eba43119d7256,
+    type: 3}
+  m_PrefabInstance: {fileID: 631532390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1940319316 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4568293337690552488, guid: 968e57155e6a6f74f92eba43119d7256,
     type: 3}
   m_PrefabInstance: {fileID: 631532390}
   m_PrefabAsset: {fileID: 0}

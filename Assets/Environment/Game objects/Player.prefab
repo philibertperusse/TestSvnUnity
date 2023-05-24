@@ -51,9 +51,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0.05
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 1
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.275, y: -1.3}
@@ -135,17 +135,20 @@ MonoBehaviour:
   Crouching: {fileID: 5315003283997903043}
   GroundChecker: {fileID: 6745695453242542286}
   Tilemap: {fileID: 0}
-  _Speed: 0.05
-  _SCap: 7.5
-  _CSpeed: 0.1
+  _Speed: 5
+  _SCap: 20
+  _CSpeed: 1
   _Direction: 0
-  _BuildUp: 0.01
-  _RBuildUp: 0.01
-  _JForce: 25
+  _BuildUp: 1
+  _BuildUpA: 1
+  _RBuildUp: 1
+  _JForce: 125
   _IsJumping: 0
   _IsCrouching: 0
-  _Limiter: 1.5
+  _Limiter: 1
   _Ceiling: 0
+  vel: {x: 0, y: 0}
+  anim: {fileID: 4568293337690552488}
 --- !u!114 &5315003283997903101
 MonoBehaviour:
   m_ObjectHideFlags: 0

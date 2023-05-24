@@ -14,19 +14,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _CSpeed;
     [SerializeField] public float _Direction;
     [SerializeField] public float _BuildUp;
+    [SerializeField] public float _BuildUpA;
     [SerializeField] public float _RBuildUp;
     [SerializeField] public float _JForce;
     [SerializeField] public bool _IsJumping;
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
-
+    [SerializeField] public Vector2 vel;
+    public Animator anim;
 
 
 
     void Start()
     {
-        Character = gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D Character = GetComponent<Rigidbody2D>();
         Standing.isTrigger = false;
         Crouching.isTrigger = true;
     }
@@ -35,6 +37,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _Direction = Input.GetAxisRaw("Horizontal");
+        Vector2 vel = Character.velocity;
+
+        anim.SetFloat("Vspeed", vel.y);
+        anim.SetFloat("Speed", vel.x);
+        anim.SetBool("_IsJumping", _IsJumping);
+        anim.SetBool("_IsCrouching", _IsCrouching);
+
+        //Character.velocity = Vector2.ClampMagnitude( new Vector2 (_SCap, Character.velocity));
+
     }
 
     void FixedUpdate()
@@ -69,21 +80,21 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2 || Input.GetKey(KeyCode.RightArrow) && _BuildUp < _SCap / 2)
         {
-            _BuildUp = 0.5f + _BuildUp;
+            _BuildUp = _BuildUpA + _BuildUp;
         }
         if(Input.GetKey(KeyCode.A) && _BuildUp > -_SCap / 2 || Input.GetKey(KeyCode.LeftArrow) && _BuildUp < _SCap / 2)
         {
-            _BuildUp = _BuildUp -0.5f;
+            _BuildUp = _BuildUp -_BuildUpA;
         }
         //Build up for walking
         
         if(Input.GetKey(KeyCode.D) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5 || Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
         {
-            _RBuildUp = 0.75f + _RBuildUp;
+            _RBuildUp = _BuildUpA * 1.5f + _RBuildUp;
         }
         if(Input.GetKey(KeyCode.A) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp > -_SCap / 1.5 || Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
         {
-            _RBuildUp = _RBuildUp -0.75f;
+            _RBuildUp = _RBuildUp -_BuildUpA * 1.5f;
         }
         //Build up for running
 
