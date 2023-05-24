@@ -297,11 +297,6 @@ PrefabInstance:
       objectReference: {fileID: 1707028122}
     - target: {fileID: 9061812539684466747, guid: 968e57155e6a6f74f92eba43119d7256,
         type: 3}
-      propertyPath: _BuildUp
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9061812539684466747, guid: 968e57155e6a6f74f92eba43119d7256,
-        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1940319316}

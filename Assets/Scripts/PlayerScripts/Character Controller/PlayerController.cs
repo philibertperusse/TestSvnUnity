@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float _Speed;
     [SerializeField] public float _SCap;
     [SerializeField] public float _CSpeed;
+    public float _CSpeedCalc;
     [SerializeField] public float _Direction;
     [SerializeField] public float _BuildUp;
+    [SerializeField] public float _RBuildUpCalc;
     [SerializeField] public float _BuildUpA;
-    [SerializeField] public float _RBuildUp;
+    [SerializeField] public float _RBuildUpA;
     [SerializeField] public float _JForce;
     [SerializeField] public bool _IsJumping;
     [SerializeField] public bool _IsCrouching;
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
         }
-        //Jump $
+        //Jump
 
         if (Input.GetKey(KeyCode.S))
         {
@@ -64,52 +66,44 @@ public class PlayerController : MonoBehaviour
         {
             _IsCrouching = false;
         }
-        //Crouch Detection $
+        //Crouch Detection (& speed calculation)
 
         if (_IsCrouching)
         {
             Standing.isTrigger = true;
             Crouching.isTrigger = false;
+            _CSpeedCalc = _CSpeed;
         }
         else
         {
             Standing.isTrigger = false;
             Crouching.isTrigger = true;
+            _CSpeedCalc = 1f;
         }
         //Crouch Deformation 
 
-        if (Input.GetKey(KeyCode.D) && _BuildUp < _SCap / 2 || Input.GetKey(KeyCode.RightArrow) && _BuildUp < _SCap / 2)
+        if(Input.GetKey(KeyCode.LeftShift))
         {
-            _BuildUp = _BuildUpA + _BuildUp;
+            _RBuildUpCalc = _RBuildUpA;
         }
-        if(Input.GetKey(KeyCode.A) && _BuildUp > -_SCap / 2 || Input.GetKey(KeyCode.LeftArrow) && _BuildUp < _SCap / 2)
+        else
         {
-            _BuildUp = _BuildUp -_BuildUpA;
+            _RBuildUpCalc = 1f;
         }
-        //Build up for walking
-        
-        if(Input.GetKey(KeyCode.D) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5 || Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
-        {
-            _RBuildUp = _BuildUpA * 1.5f + _RBuildUp;
-        }
-        if(Input.GetKey(KeyCode.A) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp > -_SCap / 1.5 || Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftShift)) && _RBuildUp < _SCap / 1.5)
-        {
-            _RBuildUp = _RBuildUp -_BuildUpA * 1.5f;
-        }
-        //Build up for running
+        //Run Detection
 
-        if(_Direction > 0.1f && _IsCrouching || _Direction < -0.1f && _IsCrouching)
+        if (_Direction > 0f || _Direction < 0f)
         {
-            Character.AddForce(new Vector2(_Speed * _Direction * _CSpeed * _Limiter + _BuildUp * _Limiter *_CSpeed, 0f), ForceMode2D.Impulse);
+            _BuildUp = _BuildUpA * _Direction + _RBuildUpCalc * _Direction + _BuildUp;
+        }  
+        //Build up for movement (walking and running)
+
+        if(_Direction > 0f || _Direction < 0f)
+        {
+            Character.AddForce(new Vector2(_Speed * _CSpeedCalc * _Direction, 0f), ForceMode2D.Impulse);
         }
         //Direction Calculations for crouching (sorry computer, you have a lot of work to do because of me :( )
 
-        if(_Direction > 0.1f && !_IsCrouching || _Direction < -0.1f && !_IsCrouching)
-        {
-            Character.AddForce(new Vector2(_Speed * _Direction * _Limiter + _BuildUp * _Limiter * 1.5f + _RBuildUp * _Limiter, 0f), ForceMode2D.Impulse);
-        }
-        //Direction Calculations (sorry computer, you have a lot of work to do because of me :( )
-        
         if(!Input.GetKey(KeyCode.D) && _BuildUp > 0)
         {
             _BuildUp = _BuildUp - 0.5f;
@@ -119,16 +113,6 @@ public class PlayerController : MonoBehaviour
             _BuildUp = _BuildUp + 0.5f;
         }
         //Build down for walking
-
-        if(!Input.GetKey(KeyCode.LeftShift) && _RBuildUp > 0)
-        {
-            _RBuildUp = _RBuildUp - 0.75f;
-        }
-        if(!Input.GetKey(KeyCode.LeftShift) && _RBuildUp < 0)
-        {
-            _RBuildUp = _RBuildUp + 0.75f;
-        }
-        //Build down for running
         
         if(GroundChecker.IsTouching(Tilemap))
         {
