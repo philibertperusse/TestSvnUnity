@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _IsCrouching;
     [SerializeField] public float _Limiter;
     [SerializeField] public bool _Ceiling;
-    [SerializeField] public Vector2 vel;
     public Animator anim;
 
 
@@ -52,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Character.velocity.x > _SCap)
+        {
+            Character.velocity = new Vector2(_SCap, Character.velocity.y);
+        }
+
         if (Input.GetKey(KeyCode.Space) && !_IsJumping)
         {
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour
         }
         //Run Detection
 
-        if (_Direction > 0f || _Direction < 0f)
+        if (_Direction > 0f && _BuildUp < _SCap|| _Direction < 0f && _BuildUp > -_SCap)
         {
             _BuildUp = _BuildUpA * _Direction + _RBuildUpCalc * _Direction + _BuildUp;
         }  
@@ -100,9 +104,9 @@ public class PlayerController : MonoBehaviour
 
         if(_Direction > 0f || _Direction < 0f)
         {
-            Character.AddForce(new Vector2(_Speed * _CSpeedCalc * _Direction, 0f), ForceMode2D.Impulse);
+            Character.AddForce(new Vector2(_Speed * _CSpeedCalc * _BuildUp * _Limiter, 0f), ForceMode2D.Impulse);
         }
-        //Direction Calculations for crouching (sorry computer, you have a lot of work to do because of me :( )
+        //Direction Calculations (sorry computer, you have a lot of work to do because of me :( )
 
         if(!Input.GetKey(KeyCode.D) && _BuildUp > 0)
         {
@@ -118,13 +122,26 @@ public class PlayerController : MonoBehaviour
         {
             _IsJumping = false;
             Debug.Log("on ground");
+            _Limiter = 1f;
         }
         else
         {
             _IsJumping = true;
             Debug.Log("not on ground");
+            _Limiter = 0.75f;
         }
         //The character is on or not on ground.
+        
+        if (Standing.IsTouching(Tilemap))
+        {
+            _Ceiling = true;
+            Debug.Log("is touching");
+        }
+        else
+        {
+            _Ceiling = false;
+            Debug.Log("is not touching");
+        }
     }
     
 
