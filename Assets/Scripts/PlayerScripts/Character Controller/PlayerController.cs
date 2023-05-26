@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D Character;
+    [SerializeField] public Collider2D Head;
     [SerializeField] public Collider2D Standing;
     [SerializeField] public Collider2D Crouching;
     [SerializeField] public Collider2D GroundChecker;
@@ -56,6 +57,11 @@ public class PlayerController : MonoBehaviour
             Character.velocity = new Vector2(_SCap, Character.velocity.y);
         }
 
+        if (Character.velocity.x < -_SCap)
+        {
+            Character.velocity = new Vector2(-_SCap, Character.velocity.y);
+        }
+
         if (Input.GetKey(KeyCode.Space) && !_IsJumping)
         {
             Character.AddForce(new Vector2(0f, _JForce), ForceMode2D.Impulse);
@@ -66,7 +72,7 @@ public class PlayerController : MonoBehaviour
         {
             _IsCrouching = true;
         }
-        else
+        else if(!_Ceiling)
         {
             _IsCrouching = false;
         }
@@ -104,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
         if(_Direction > 0f || _Direction < 0f)
         {
-            Character.AddForce(new Vector2(_Speed * _CSpeedCalc * _BuildUp * _Limiter, 0f), ForceMode2D.Impulse);
+            Character.AddForce(new Vector2(_Speed * _BuildUp * _Limiter * _CSpeedCalc, 0f), ForceMode2D.Impulse);
         }
         //Direction Calculations (sorry computer, you have a lot of work to do because of me :( )
 
@@ -132,7 +138,7 @@ public class PlayerController : MonoBehaviour
         }
         //The character is on or not on ground.
         
-        if (Standing.IsTouching(Tilemap))
+        if (Head.IsTouching(Tilemap))
         {
             _Ceiling = true;
             Debug.Log("is touching");

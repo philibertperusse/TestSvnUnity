@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5315003283997903047}
   - component: {fileID: 5315003283997903096}
+  - component: {fileID: 1778121093000926690}
   - component: {fileID: 5315003283997903046}
   - component: {fileID: 5315003283997903043}
   - component: {fileID: 6745695453242542286}
@@ -60,6 +61,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &1778121093000926690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315003283997903089}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.275, y: 0.75}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 2.5}
+    newSize: {x: 0.32, y: 0.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!70 &5315003283997903046
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -131,20 +158,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 5315003283997903096}
+  Head: {fileID: 1778121093000926690}
   Standing: {fileID: 5315003283997903046}
   Crouching: {fileID: 5315003283997903043}
   GroundChecker: {fileID: 6745695453242542286}
   Tilemap: {fileID: 0}
-  _Speed: 1
-  _SCap: 1
-  _CSpeed: 1
+  _Speed: 5
+  _SCap: 10
+  _CSpeed: 0.25
   _CSpeedCalc: 1
-  _Direction: 1
+  _Direction: 0
   _BuildUp: 1
   _RBuildUpCalc: 1
   _BuildUpA: 1
   _RBuildUpA: 1
-  _JForce: 1
+  _JForce: 300
   _IsJumping: 0
   _IsCrouching: 0
   _Limiter: 1
