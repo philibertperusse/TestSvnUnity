@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("_IsJumping", _IsJumping);
         anim.SetBool("_IsCrouching", _IsCrouching);
 
-        //Character.velocity = Vector2.ClampMagnitude( new Vector2 (_SCap, Character.velocity));
-
     }
 
     void FixedUpdate()
@@ -105,12 +103,17 @@ public class PlayerController : MonoBehaviour
         if (_Direction > 0f && _BuildUp < _SCap|| _Direction < 0f && _BuildUp > -_SCap)
         {
             _BuildUp = _BuildUpA * _Direction + _RBuildUpCalc * _Direction + _BuildUp;
+
+            if(_BuildUp > _SCap || _BuildUp < -_SCap)
+            {
+                _BuildUp = _SCap * _Direction;
+            }
         }  
         //Build up for movement (walking and running)
 
         if(_Direction > 0f || _Direction < 0f)
         {
-            Character.AddForce(new Vector2(_Speed * _BuildUp * _Limiter * _CSpeedCalc, 0f), ForceMode2D.Impulse);
+            Character.AddForce(new Vector2(_Speed * _BuildUp * _Limiter * _CSpeedCalc * _RBuildUpCalc, 0f), ForceMode2D.Impulse);
         }
         //Direction Calculations (sorry computer, you have a lot of work to do because of me :( )
 

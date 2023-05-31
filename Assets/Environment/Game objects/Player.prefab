@@ -163,7 +163,7 @@ MonoBehaviour:
   Crouching: {fileID: 5315003283997903043}
   GroundChecker: {fileID: 6745695453242542286}
   Tilemap: {fileID: 0}
-  _Speed: 5
+  _Speed: 2.5
   _SCap: 10
   _CSpeed: 0.25
   _CSpeedCalc: 1
@@ -171,8 +171,8 @@ MonoBehaviour:
   _BuildUp: 1
   _RBuildUpCalc: 1
   _BuildUpA: 1
-  _RBuildUpA: 1
-  _JForce: 300
+  _RBuildUpA: 5
+  _JForce: 200
   _IsJumping: 0
   _IsCrouching: 0
   _Limiter: 1
