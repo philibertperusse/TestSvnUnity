@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - CanvaHB
   - FallDetector
+  - CDB
   layers:
   - Default
   - TransparentFX
